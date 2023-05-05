@@ -1,14 +1,23 @@
 import java.io.IOException;
 
 public class Convertor1 {
-    String[] romanNums = {"нулевой элемент", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X","XI","XII", "XIII",
-            "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XVI", "XXV", "XXVII",
-            "XXVIII", "XXX", "XXXV", "XXXVI", "XL", "XLII", "XLV", "XLVIII", "XLIX", "L",
-            "LIV", "LVI", "LX", "LXIII", "LXIV", "LXXII", "LXXXI", "XC", "C"};
-    public boolean isRoman(String strNum) {
-        for (int i = 0; i < 11; i++) {
-            if (strNum.equals(romanNums[i])) {
+    String[] romanNums = {"Нулевоезначениее", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
+            "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
+            "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX",
+            "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
+            "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L",
+            "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX",
+            "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX",
+            "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX",
+            "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
+            "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"};
+
+    public boolean isRoman(String strNum) throws IOException {
+        for (int i = 0; i < 101; i++) {
+            if (strNum.equals(romanNums[i]) && i < 11) {
                 return true;
+            } else if(strNum.equals(romanNums[i]) && i >= 11) {
+                throw new IOException("Римские числа можно использовать в диапазоне от I до X");
             }
         }
         return false;

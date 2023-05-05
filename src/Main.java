@@ -35,20 +35,20 @@ public class Main {
            return result = Integer.toString(calculateArabian(expressionChar, numStrArray));
         }
     }
-    public static int calculateArabian (String expressionChar, String[] numStrArray) throws IOException {
+    public static int calculateArabian (String expressionChar, String[] numStrArray) throws IOException, NumberFormatException {
        int a = 0;
        int b = 0;
-       if (numStrArray[0].indexOf('.') > -1 || numStrArray[1].indexOf('.') > -1){
+        if (numStrArray[0].indexOf('.') > -1 || numStrArray[1].indexOf('.') > -1){
            throw new IOException("Нельзя использовать числа с плавующей точкой");
        }
         try {
             a = Integer.parseInt(numStrArray[0]);
             b = Integer.parseInt(numStrArray[1]);
         } catch (NumberFormatException e) {
-            System.out.println("Введено некорректное значение аргументов");
+            throw new NumberFormatException("Введено некорректное значение аргумента");
         }
-        if(a < 1 || a > 10 || b < 1 || b > 10) {
-            throw new IOException("Значение одного из операндов выходит за предел допустимых значений");
+        if (a < 1 || a > 10 || b < 1 || b > 10) {
+            throw new IOException("Арабские числа можно использовать в диапазоне от 1 до 10");
         }
         int result = 0;
         switch (expressionChar) {
