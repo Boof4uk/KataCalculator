@@ -14,9 +14,9 @@ public class Convertor1 {
 
     public boolean isRoman(String strNum) throws IOException {
         for (int i = 0; i < 101; i++) {
-            if (strNum.equals(romanNums[i]) && i < 11) {
+            if (strNum.equals(romanNums[i]) && i < 11 && i > 0) {
                 return true;
-            } else if(strNum.equals(romanNums[i]) && i >= 11) {
+            } else if(strNum.equals(romanNums[i]) && i >= 11 || strNum.equals(romanNums[i]) && i == 0) {
                 throw new IOException("Римские числа можно использовать в диапазоне от I до X");
             }
         }
